@@ -11,7 +11,7 @@ $BranchToUse = 'main'
 Start-Transcript $ENV:TEMP\Winutil.log -Append
 
 # $inputXML = Get-Content "MainWindow.xaml" #uncomment for development
-$inputXML = (new-object Net.WebClient).DownloadString("https://github.com/pithiki77/winutil/raw/main/MainWindow.xaml") #uncomment for Production
+$inputXML = (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/pithiki77/winutil/main/MainWindow.xaml") #uncomment for Production
 
 # Check if chocolatey is installed and get its version
 if ((Get-Command -Name choco -ErrorAction Ignore) -and ($chocoVersion = (Get-Item "$env:ChocolateyInstall\choco.exe" -ErrorAction Ignore).VersionInfo.ProductVersion)) {
@@ -32,7 +32,7 @@ $configs = @{}
     "feature"
 ) | ForEach-Object {
     #$configs["$PSItem"] = Get-Content .\config\$PSItem.json | ConvertFrom-Json
-    $configs["$psitem"] = Invoke-RestMethod "https://github.com/pithiki77/winutil/raw/config/$psitem.json"
+    $configs["$psitem"] = Invoke-RestMethod "https://raw.githubusercontent.com/pithiki77/winutil/main/config/$psitem.json"
 }
 
 
@@ -222,7 +222,7 @@ $WPFinstall.Add_Click({
                 # Switching to winget-install from PSGallery from asheroto
                 # Source: https://github.com/asheroto/winget-installer
                 
-                Start-Process powershell.exe -Verb RunAs -ArgumentList "-command irm https://github.com/pithiki77/winutil/raw/main/winget.ps1 | iex | Out-Host" -WindowStyle Normal
+                Start-Process powershell.exe -Verb RunAs -ArgumentList "-command irm https://raw.githubusercontent.com/pithiki77/winutil/main/winget.ps1 | iex | Out-Host" -WindowStyle Normal
                 
             }
             elseif (((Get-ComputerInfo).WindowsVersion) -lt "1809") {
@@ -820,7 +820,7 @@ $WPFtweaksbutton.Add_Click({
         }
         If ( $WPFEssTweaksRemoveEdge.IsChecked -eq $true ) {
             Write-Host "Removing Microsoft Edge..."
-            Invoke-WebRequest -useb https://github.com/pithiki77/winutil/raw/main/Edge_Removal.bat | Invoke-Expression
+            Invoke-WebRequest -useb https://raw.githubusercontent.com/pithiki77/winutil/main/Edge_Removal.bat | Invoke-Expression
             $WPFEssTweaksRemoveEdge.IsChecked = $false
         }
         If ( $WPFEssTweaksDeBloat.IsChecked -eq $true ) {
