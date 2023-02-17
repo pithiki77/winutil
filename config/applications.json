@@ -296,7 +296,7 @@
     "choco": "windirstat"
   },
   "WPFInstallwinrar": {
-    "winget": "Winrar.Winrar",
+    "winget": "Winrar",
     "choco": "winrar"
   },
   "WPFInstallscp": {
