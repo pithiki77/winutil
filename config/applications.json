@@ -295,6 +295,10 @@
     "winget": "WinDirStat.WinDirStat",
     "choco": "windirstat"
   },
+  "WPFInstallwinrar": {
+    "winget": "Winrar.Winrar",
+    "choco": "winrar"
+  },
   "WPFInstallscp": {
     "winget": "WinSCP.WinSCP",
     "choco": "winscp"
